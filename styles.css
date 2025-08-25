@@ -1,0 +1,504 @@
+:root {
+  --primary: #000000;
+  --accent: #00BFFF;
+  --background: #FFFFFF;
+  --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-secondary: 'Poppins', sans-serif;
+}
+
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   flex-wrap: nowrap;
+}
+.logo h1 {
+  margin-top: 5px;
+}
+
+.logo-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+@media (max-width: 1024px) {
+  .logo {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .logo-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logo h1 {
+    font-size: 1.4rem;
+    margin-left: 0;
+    text-align: center;
+    margin-top: 5px;
+  }
+}
+
+
+
+
+.welcome {
+  margin-top: 60px;
+  margin-right: 80px;
+}
+
+@media (max-width: 600px) {
+.welcome {
+  margin-top: 10px;
+  margin-left: -80px;
+  margin-right: -30px;
+  font-size: .8rem;
+}}
+.welcome p{
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 40px;
+    font-family: var(--font-secondary);  
+    text-align: justify; /* justify alignment */
+
+}      
+
+    h1 {     
+      margin-left: 80px;  
+        text-align: center;
+       
+    }
+
+   .mission {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start; /* aligns content at the top */
+}
+
+.hero {
+  flex: 1;          /* take equal space */
+  max-width: 400px; /* optional max width */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 600px) {
+  .hero {
+    max-width: 100%;     /* take full width of the screen */
+    width: 100%;         /* make it responsive */
+    margin: 0 auto;      /* center it if in block layout */
+    display: block;      /* ensure it's a block-level element */
+  margin-left: 10px;
+  }
+}
+
+
+#mission, #vision {
+  flex: 1;              /* each takes equal space */
+  font-family: var(--font-secondary);
+  color: var(--primary);
+}
+
+#mission-vision h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+#mission-vision p {
+  line-height: 1.5;
+  font-size: 20px; /* or 18px, 20px — 100px is way too big */
+margin-top: -2px;
+margin-right: -10px;
+}
+
+@media (max-width: 600px) {
+  #mission-vision h2 {
+    font-size: 1.3rem; /* Smaller headings for mobile */
+    text-align: center;
+  }
+
+  #mission-vision p {
+    font-size: 1rem; /* Smaller paragraph text */
+    padding: 0 10px;
+    text-align: justify;
+  }
+
+  .mission {
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .hero {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: nowrap;
+    justify-content: space-around;
+  white-space: nowrap;
+  margin-right: 80px;
+  margin-left: 80px;
+  gap: 15px;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: var(--accent);
+  /* flex-wrap: wrap;  allows nav items to wrap on small screens */
+  
+  width: auto;
+  box-sizing: border-box;
+}
+
+.navbar a {
+  flex: 1 1 0;                    /* ✅ allow shrinking */
+  min-width: 0;                   /* ✅ allow text to shrink properly */
+  padding: 4px 4px;
+  text-align: center;
+  font-size: 1.8rem;             /* ✅ smaller font for mobile */
+  color: var(--primary);
+  background-color: var(--background);
+  border-radius: 4px;
+  text-decoration: none;
+  overflow: hidden;               /* for ellipsis */
+  text-overflow: ellipsis;        /* show ... if still overflowing */
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    margin-top: -15px;  
+    margin-left: 10px;  
+    margin-right: 10px;
+  }}
+
+@media (max-width: 600px) {
+  .navbar a {
+    font-size: 0.5rem;
+    padding: 4px 2px;
+    }}
+
+.navbar a:hover {
+  background-color: #009acd;
+}
+
+ .cta {
+  background-color: var(--accent);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 20px;
+  margin-left: 600px;
+  margin-top: -250px;
+  max-width: 700px;
+  font-family: var(--font-primary);
+}
+
+.cta-button-wrapper {
+  margin-top: 40px;
+  padding-top: 10px;
+}
+
+.cta h2 {
+  margin-top: -20px;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.cta p {
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+}
+
+.cta-button {
+  background-color: white;
+  color: var(--primary);
+  font-weight: bold;
+  padding: 12px 10px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background-color 0.3s, color 0.3s;
+  display: inline-block;
+}
+
+.cta-button {
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: #009acd;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .cta {
+    margin: 20px auto;
+    padding: 20px 15px;
+    text-align: center;
+    border-radius: 15px;
+    max-width: 90%;
+    margin-left: 10px;
+  
+  }
+
+  .cta h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .cta p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    display: inline-block;
+  }
+}
+
+.services-overview {
+  display: flex;
+  flex-direction: row;  /* aligns children side-by-side */
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 20px;
+  margin-right: 1px;
+  }
+
+  .services-overview {
+    font-size: 1.2rem;
+  }
+.service-item {
+  flex: 1 1 250px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px var(--primary);
+  text-align: center;
+
+  /* Add min-height for desktop */
+  min-height: 280px; /* Adjust this value as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Keep content at top */
+}
+
+.service-item p {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: var(--primary);
+  margin: 0; /* Remove default margins to avoid extra space */
+  padding-bottom: 10px; /* Optional small padding instead of margin */
+}
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+  .service-item {
+    min-height: auto; /* allow shrinking */
+  }
+
+  .service-item p {
+    font-size: 1rem;
+    padding-bottom: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-overview {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 0;
+    margin-left: 20px;
+  margin-right: 10px;
+  
+  }
+
+  .service-item {
+    width: 100%;
+    max-width: 400px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px var(--primary);
+    padding: 15px 20px;  /* restore padding */
+    margin: 0 0 0 0;  /* margin-bottom to separate stacked items */
+  }
+
+  .service-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .service-item p {
+    font-size: 1rem;
+    margin: 0;        /* no extra margin */
+    line-height: 1.4;
+  }
+}
+
+
+.service-item {
+  min-height: auto;
+  height: auto;
+  max-height: 130px;
+}
+
+
+footer {
+  margin-top: 60px;
+  text-align: center;          /* ✅ Center text like © 2025 ... */
+  display: flex;               
+  flex-direction: column;      /* ✅ Stack content vertically */
+  align-items: center;         /* ✅ Center items horizontally */
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--background);
+}
+
+.social-icons {
+  display: flex;   /* <-- needed for gap to work */
+  gap: 30px;       /* space between icons */
+  justify-content: center; /* center icons horizontally */
+  align-items: center;     /* align icons vertically */
+  margin-top: 10px;        /* optional spacing from above */
+}
+
+
+.social-icons img {
+    width: 36px;
+}
+
+    /* Default desktop */
+h1 {
+  font-size: 2.5rem;
+}
+
+/* Smaller screens */
+
+
+.services-page p {
+  text-align: center;
+  font-size: 1.5rem;
+  justify-content: center;
+}
+
+/* PORTFOLIO */
+
+.heading-portfolio {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 2rem;
+  margin-left: 150px;
+  margin-right: 150px;
+  
+}
+
+
+
+.project-card img {
+  width: 1060px;
+  display: block;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.project-card a {
+  margin-left: 150px;
+  text-align: center;
+  margin-right: 150px;
+  
+}
+
+.project-card h2 {
+  margin-left: 150px;
+
+}
+
+.project-card p {
+  margin-left: 150px;
+}
+
+/* ABOUT */
+
+.about-intro {
+margin-left: 150px;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-right: 150px;
+}
+
+.about-intro h1 {
+  margin-left: -15px;
+}
+
+
+.values-section {
+   padding-top: 20px;
+margin-left: 150px;
+  text-align: left;
+    font-size: 1.5rem;
+  margin-right: 150px;
+}
+
+.why-choose-us{
+  padding-top: 20px;
+  margin-left: 150px;
+  text-align: center;
+    font-size: 1.5rem;
+  margin-right: 150px;
+}
+
+.founder-section {
+   padding-top: 20px;
+  margin-left: 150px;
+  text-align: center;
+    font-size: 1.5rem;
+  margin-right: 150px;
+}
+
+/* contact */
+
+.get-in-touch {
+  margin-left: 160px;
+    font-size: 1.5rem;
+    text-align: center;
+ }
+
+ .get-in-touch h1 {
+  margin-left: -30px;
+    font-size: 2.5rem;
+    text-align: center;
+ }
+
+
+
+.contact-info {
+    margin-left: 160px;
+    font-size: 1.5rem;
+    text-align: center;
+ }
+
+ .contact-form {
+   margin-left: 160px;
+   font-size: 1.5rem;
+   text-align: center;
+ }
