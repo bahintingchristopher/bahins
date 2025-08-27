@@ -107,7 +107,8 @@ p, button, a, .cta-button {
 }      
 
 .hero {
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   background-color: var(--accent); /* Blue background */
   padding: 40px; /* 1 inch spacing inside hero */
@@ -437,15 +438,17 @@ max-width: 1200px;
 
  /* SERVICES SECTION*/
 .offers {
-  text-align: center;
-  background: var(--background);
-  border: 2px solid var(--accent);
   width: 1200px;
   max-width: 100%;
-  margin: 0 auto 0 135px; /* top 0, right auto, bottom 0, left 50px */
+  margin: 20px auto; /* ✅ Perfectly centered in all browsers */
   padding: 15px;
   border-radius: 8px;
+  border: 2px solid var(--accent);
+  box-sizing: border-box;
+  background: var(--background);
+  text-align: center;
 }
+
 
 
 .services-page h1 {
@@ -454,7 +457,7 @@ max-width: 1200px;
  
 .why-choose-us {
   background-color: var(--accent);           /* Or your preferred color */
-  max-width: calc(100% - 192px);       /* 96px left + 96px right = ~4 inches */
+  width: 1200px;
   margin: 20px auto;                   /* Center horizontally */
   padding: 20px;
   border-radius: 8px;
