@@ -6,6 +6,15 @@
   --font-secondary: 'Poppins', sans-serif;
 }
 
+h1, h2, h3 {
+  font-size: 2rem;
+}
+
+p, button, a, .cta-button {
+  font-size: 1.5rem;
+}
+
+
 .full-screen-overlay {
   position: fixed; /* or absolute */
   top: 0;
@@ -25,11 +34,6 @@
   box-sizing: border-box;
 }
 
-
-
-
-
-
 .logo {
   display: flex;
   flex-direction: column;
@@ -46,71 +50,6 @@
   border-radius: 50%;
   object-fit: cover;
 }
-
-
-
-
-
-
-.welcome {
-  margin: 60px auto;
-  max-width: 1200px;
-  padding: 0 20px;
-}
-
-.welcome h1{
-  text-align: center;
-}
-
-
-.welcome p{
-    font-size: 1.5rem;
-    margin-top: 20px;
-    margin-left: 100px;
-    margin-right: 40px;
-    font-family: var(--font-secondary);  
-    text-align: justify; /* justify alignment */
-
-}      
-
-
-   .mission {
-  display: flex;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: flex-start; /* aligns content at the top */
-}
-
-.hero {
-  flex: 1;          /* take equal space */
-  max-width: 400px; /* optional max width */
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-
-
-#mission, #vision {
-  flex: 1;              /* each takes equal space */
-  font-family: var(--font-secondary);
-  color: var(--primary);
-}
-
-#mission-vision h2 {
-  font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 10px;
-}
-
-#mission-vision p {
-  line-height: 1.5;
-  font-size: 20px; /* or 18px, 20px — 100px is way too big */
-margin-top: -2px;
-margin-right: -10px;
-}
-
 
 .navbar {
   display: flex;
@@ -144,53 +83,101 @@ margin-right: -10px;
 .navbar a:hover {
   background-color: #009acd;
 }
+
+
+.welcome {
+  
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.welcome h1{
+  text-align: center;
+}
+
+.welcome p{
+    font-size: 1.5rem;
+    margin-top: 20px;
+    text-align: center;
+    font-family: var(--font-secondary);  
+    text-align: justify; /* justify alignment */
+
+}      
+
+.hero {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: var(--accent); /* Blue background */
+  padding: 40px; /* 1 inch spacing inside hero */
+  box-sizing: border-box;
+}
+
+.nested-hero {
+  width: 100%;
+  background-color: var(--background); /* Optional: contrast background */
+}
+
+.hero-img {
+  width: 100%;
+  display: block;
+}
+
+.mission-vision {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mission-vision > div {
+  flex: 1;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  text-align: center; /* Center the headings and inline text */
+}
+
+.mission-vision > div p {
+  text-align: justify; /* Justify the paragraph text */
+  margin-top: 10px;
+}
+
+.cta-cont {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px; /* spacing from mission/vision */
+}
+
 .cta {
+  width: 1000px; /* 👈 set desired width */
+  max-width: 100%;
   background-color: var(--accent);
-  color: white;
+  color: rgb(43, 6, 6);
   text-align: center;
   padding: 40px 20px;
   border-radius: 20px;
-  max-width: 700px;
-  margin: 60px auto 60px auto; /* top and bottom margin, centered horizontally */
   font-family: var(--font-primary);
-  position: absolute;          /* keep relative */
-  margin-left: 580px;                /* move it right 50px */
-  vertical-align: middle;
-  margin-top: -260px;
-  
+  box-sizing: border-box;
 }
-
-
 
 .cta-button-wrapper {
-  margin-top: 40px;
-  padding-top: 10px;
-}
-
-.cta h2 {
-  margin-top: -20px;
-  margin-bottom: 15px;
-  font-size: 2rem;
-}
-
-.cta p {
-  margin-bottom: 25px;
-  font-size: 1.2rem;
+  margin-top: 30px; /* 👈 pushes the button lower */
 }
 
 .cta-button {
-  background-color: white;
-  color: var(--primary);
+  background-color: var(--primary);
+  color: white;
   font-weight: bold;
-  padding: 12px 10px;
-  border-radius: 30px;
+  padding: 12px 24px;
+  border-radius: 10px;
   text-decoration: none;
   font-size: 1.1rem;
-  transition: background-color 0.3s, color 0.3s;
-  display: inline-block;
-}
-
-.cta-button {
+  transition: background-color 0.3s ease, color 0.3s ease;
   display: inline-block;
 }
 
@@ -199,49 +186,49 @@ margin-right: -10px;
   color: white;
 }
 
-.services-overview {
-  position: relative;  /* Add this */
-  max-width: 1200px;
-  margin: 0 auto;
-  top: 20px;
-  padding: 0 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between;
+.cta-button {
+  background-color: var(--primary);  /* or use #000, #007BFF, etc. */
+  margin-top: 30px;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: #009acd; /* lighter blue on hover */
+  color: white;
 }
 
 
+
+.cta-button:hover {
+  background-color: #009acd;
+  color: white;
+}
+.services-overview {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* optional spacing */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  flex-wrap: wrap; /* ensures responsive wrapping if needed */
+}
+
 .service-item {
-  flex: 1 1 250px;
+  flex: 1 1 calc(33.33% - 20px); /* 3 equal columns, accounting for gap */
   background: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px var(--primary);
   text-align: center;
- 
-
-  /* Add min-height for desktop */
-  min-height: 280px; /* Adjust this value as needed */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Keep content at top */
-}
-
-.service-item p {
-  font-size: 1.5rem;
-  line-height: 1.4;
-  color: var(--primary);
-  margin: 0; /* Remove default margins to avoid extra space */
-  padding-bottom: 10px; /* Optional small padding instead of margin */
-}
-
-
-
-.service-item {
-  min-height: auto;
-  height: auto;
-  max-height: 130px;
+  box-sizing: border-box;
 }
 
 
@@ -273,9 +260,6 @@ footer {
 h1 {
   font-size: 2.5rem;
 }
-
-/* Smaller screens */
-
 
 .services-page p {
   text-align: center;
@@ -314,8 +298,11 @@ h1 {
 
 .project-card h2 {
   text-align: center;
-
+  width: 100%; /* or remove width entirely if not needed */
+  max-width: 1000px; /* control max width */
+  margin: 0 auto;    /* center the element horizontally */
 }
+
 
 .project-card p {
   text-align: center;
@@ -352,6 +339,7 @@ text-align: center;
   margin: 0 auto;         /* center the whole list block */
   padding: 0 20px;        /* optional padding */
   list-style-position: inside; /* keeps bullets inside padding */
+  padding-bottom: 20px;
   
 }
 
@@ -364,7 +352,6 @@ text-align: center;
 
 
 .why-choose-us{
-  padding-top: 20px;
   text-align: center;
   font-size: 1.5rem;  
 }
@@ -373,21 +360,43 @@ text-align: center;
   text-align: center;      /* center text inside the box */
   width: 1060px;           /* fixed width */
   margin: 0 auto;          /* center the box horizontally */
+  padding-bottom: 20px;
 }
 
-.founder-section {
-   padding-top: 20px;
-  margin-left: 150px;
+
+  .founder-section {
+  background-color: var(--accent); /* rich dark brown */
+  color: var(--primary); /* soft cream for text */
+  padding: 20px;
+  border-radius: 8px;
+max-width: 1200px;
+  margin: 40px auto;
   text-align: center;
-    font-size: 1.5rem;
-  margin-right: 150px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-secondary, sans-serif);
+}
+
+.founder-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
 }
 
 .founder-section p {
-  text-align: center;      /* center text inside the box */
-  width: 1060px;           /* fixed width */
-  margin: 0 auto;          /* center the box horizontally */
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-top: 20px;
 }
+
+.founder-photo {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+
 
 
 /* CONTACT SECTION */
@@ -404,20 +413,27 @@ text-align: center;
  }
 
 .contact-info {
+  padding-top: 20px;
     font-size: 1.5rem;
     text-align: center;
      }
 
 .contact-info p {
-  text-align: justify;
-  margin-left: 440px;
-}
-
-  
- .contact-form {
-   font-size: 1rem;
+  text-align: center;
+  }
+    
+ .contact-form  {
+  padding-top: 40px;
+   font-size: 1.5rem;
    text-align: center;
  }
+
+.new_set_contact img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
  /* SERVICES SECTION*/
 .offers {
@@ -426,7 +442,7 @@ text-align: center;
   border: 2px solid var(--accent);
   width: 1200px;
   max-width: 100%;
-  margin: 0 auto 0 130px; /* top 0, right auto, bottom 0, left 50px */
+  margin: 0 auto 0 135px; /* top 0, right auto, bottom 0, left 50px */
   padding: 15px;
   border-radius: 8px;
 }
@@ -435,261 +451,510 @@ text-align: center;
 .services-page h1 {
   text-align: center;
  }
+ 
+.why-choose-us {
+  background-color: var(--accent);           /* Or your preferred color */
+  max-width: calc(100% - 192px);       /* 96px left + 96px right = ~4 inches */
+  margin: 20px auto;                   /* Center horizontally */
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-sizing: border-box;
+}
 
-/* 
- FOR MOBILE */
-@media only screen and (max-width: 600px) {
-  .full-width-wrapper {
-    width: 600px;
-    max-width: 100vw;
-    margin: 0 auto;
-    padding: 0 10px;
-    box-sizing: border-box;
+
+ /*MOBILE AND ONWARD*/
+
+ @media screen and (max-width: 600px) {
+  .logo {
+    text-align: center;
+    padding: 15px 10px;
   }
 
+  .logo-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .logo h1 {
+    font-size: 1.2rem;
+    margin: 12px 0 8px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+  }
+
+  .logo h1::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    margin-top: 6px;
+  }
+}
+@media (max-width: 600px) {
+  h1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 600px) {
   .navbar {
     display: flex;
-    flex-wrap: nowrap;          /* no wrap */
-    justify-content: space-between; /* spread evenly */
-    gap: 5px;
-    width: 100%;
-    padding: 10px 5px;
-    margin-left: -5px;
-    border-radius: 10px;
-    overflow: visible;          /* no scroll */
+    white-space: nowrap;
+    overflow-x: auto;
+    margin: 0 auto;
+    -webkit-overflow-scrolling: touch;
+    width: 90%;
   }
 
   .navbar a {
-    flex: 1 1 auto;             /* flex grow/shrink to fit */
-    white-space: nowrap;        /* no wrap inside button */
-    font-size: .6rem;            /* smaller font */
-    padding: 8px 10px;
+    display: inline-block;
+    flex: 0 0 auto;
+    padding: 10px 20px;
+    text-decoration: none;
+    
+  }
+
+  @media (max-width: 600px) {
+  .navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    width: 99%;         /* Needed for centering */
+    max-width: 600px;   /* Limits to screen size */
+    margin: 0 auto;     /* ✅ THIS CENTERS IT */
+    box-sizing: border-box;
+  }
+}
+
+}
+@media (max-width: 600px) {
+  .welcome {
+    text-align: center;
+    padding: 0;
+  }
+
+  .welcome h1 {
+    font-size: 1.2rem;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    margin: 0;
+  }
+
+  .welcome p {
+    font-size: 1rem;
+    margin: 0 0 0 0;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    padding: 10px;
+    border-top: 2px solid #000;       /* Keep border */
+    border-bottom: 2px solid #000;    /* Keep border */
+    background-color: var(--accent);           /* Keep background */
+    overflow: hidden;
+  }
+
+  .navbar a {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font-size: 0.7rem;                /* Shrink to fit */
+    padding: 5px;
+    white-space: nowrap;
+  }
+}
+
+
+
+
+
+
+/*MOBILE Setting - INDEX*/
+@media screen and (max-width: 600px) {
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* General full-width section layout */
+  .welcome,
+  .hero,
+  .nested-hero,
+  .mission-vision,
+  .cta-cont,
+  .cta,
+  .services-overview,
+  .service-item {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    padding:  10px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  /* Heading styles */
+  h1,
+  h2,
+  h3 {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    line-height: 1.4;
+  }
+
+  /* Paragraphs and buttons */
+  p,
+  .cta-button {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Mission & Vision stacked vertically */
+  .mission-vision {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .mission-vision > div {
+    padding: 10px;
     border-radius: 8px;
     text-align: center;
-    min-width: 0;               /* prevent flex item overflow */
   }
 
-  /* Center all headings and text */
-  h1, h2, h3, h4, h5, h6,
-  p, 
-  .welcome h1,
-  #mission-vision h2,
-  .services-page h1,
-  .about-intro h1,
-  .get-in-touch h1,
-  .founder-section,
-  .why-choose-us,
-  .values-section,
-  .contact-info,
-  .services-page p,
-  .contact-form,
-  .service-item p {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+  /* Hero image responsive */
+  .hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
-  /* Center logo */
-  .logo {
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Mission section vertical stack */
-  .mission {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .hero,
-  #mission, #vision {
-    max-width: 100%;
-  }
-
-  /* Center CTA */
+  /* CTA Section */
   .cta {
-    position: relative;
-    margin: 40px auto;
-    max-width: 90%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    vertical-align: middle;
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
+  .cta-button-wrapper {
     margin-top: 20px;
   }
 
-  /* Remove left/right margins causing overflow */
-  .welcome p,
-  .about-intro p,
-  .why-choose-us p,
-  .founder-section p,
-  .contact-info p {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }@media (max-width: 600px) {
-
-  .heading-portfolio {
-    text-align: center;    /* Center all text inside */
-    width: 100%;           /* Take full width on mobile */
-    margin-left: 0;
-    margin-right: 0;
-    display: flex;
-    flex-direction: column; /* Stack h1 and p vertically */
-    align-items: center;    /* Center horizontally */
-    gap: 10px;              /* Space between h1 and p */
-  }
-  
-  .heading-portfolio h1,
-  .heading-portfolio p {
-    margin: 0;              /* Remove default margins */
-    width: 100%;
-    padding-top: 10px;
+  .cta-button {
+    padding: 12px 20px;
     font-size: 1rem;
-  }
-}
-
-/* General styles for .offers */
-.offers {
-  margin: 20px auto;  /* Add margin to separate sections and center them */
-  text-align: center; /* Center the text */
-}
-
-/* Mobile-specific styles */
-@media (max-width: 600px) {
-  .offers {
-    text-align: center; /* Ensure text is centered */
-    width: 90%;          /* Adjust width to fit smaller screens */
-    margin: 20px auto;   /* Center the section horizontally with some space around */
+    border-radius: 8px;
+    display: inline-block;
   }
 
-  .offers h2 {
-    font-size: 1.5rem; /* Adjust font size for smaller screens */
-    margin-bottom: 10px; /* Add space below the heading */
-  }
-
-  .offers p {
-    font-size: 1.2rem; /* Adjust font size for smaller screens */
-    line-height: 1.5;  /* Improve readability */
-  }
-}
-
-  /* Service items stack full width */
-  .service-item {
-    min-height: auto;
-    max-height: none;
-    flex: 1 1 100%;
-    margin-bottom: 15px;
-  }
-
-  body, html {
-    overflow-x: hidden;  /* no horizontal scroll */
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  /* Existing mobile styles here... */
-
-  /* Make all images responsive and fit within the screen */
-  img, 
-   
-  .hero, 
-  .project-card img {
-    max-width: 100vw;    /* max width of viewport */
-    width: 90%;         /* fill available width */
-    height: auto;        /* maintain aspect ratio */
-    display: block;      /* remove inline spacing issues */
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Prevent images from causing horizontal scroll */
-  body, html {
-    overflow-x: hidden;
-  }
-}
-
-@media (max-width: 600px) {
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  h2 + p {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  h3 {
-    font-size: 1rem;
-  }
-
-  p {
-    font-size: 0.9rem;
-  }
-}
-
-/* Mobile adjustments */
-@media screen and (max-width: 600px) {
-  section {
+  /* Services stacked in one column */
+  .services-overview {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertically center */
-    align-items: center; /* Horizontally center */
-    text-align: center; /* Center text */
-    padding: 15px; /* Add padding if necessary */
+    gap: 20px;
+    padding-bottom: 30px;
   }
 
-  p {
-    text-align: center; /* Center text within the paragraph */
-    margin: 0 auto; /* Center the paragraph */
-    max-width: 90%; /* Optional: limit the paragraph width */
-    font-size: 1rem; /* Adjust font size for mobile */
-    line-height: 1.4; /* Adjust line height for readability */
+  .service-item {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 6px var(--primary);
   }
-/* General styles for the image */
-.mission {
-  text-align: center; /* Center align content */
 }
 
-.hero {
-  max-width: 100%; /* Ensure the image is responsive */
-  height: auto; /* Maintain aspect ratio */
+@media screen and (max-width: 600px) {
+  .hero-img {
+    width: 600px;
+    max-width: 100%;  /* Ensure it doesn’t overflow smaller devices */
+    height: auto;
+    display: block;
+    margin: 0 auto;   /* Center horizontally */
+  }
 }
 
-/* Mobile-specific styles */
-@media (max-width: 600px) {
-  .mission {
+/*services*/
+@media screen and (max-width: 600px) {
+  .offers {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto 20px;              /* ✅ center horizontally */
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 2px solid var(--accent);
+    text-align: center;
+    background: var(--background);
+  }
+}
+
+
+/*PORTFOLIO */
+
+@media screen and (max-width: 600px) {
+  /* General reset for safety */
+  .heading-portfolio,
+  .portfolio-grid,
+  .project-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 15px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  /* Heading and paragraph styles */
+  .heading-portfolio h1,
+  .project-card h2 {
+    font-size: 1.2rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .heading-portfolio p,
+  .project-card p {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* Image responsiveness */
+  .project-card img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto 10px auto !important;
+    max-width: 100% !important;
+    border-radius: 5px;
+  }
+
+  /* Link styling */
+  .project-card a {
+    display: inline-block !important;
+    font-size: 1rem !important;
+    margin-top: 10px !important;
+    color: #007BFF;
+    text-decoration: none !important;
+  }
+
+  .project-card a:hover {
+    text-decoration: underline !important;
+  }
+
+  /* Remove any potential grid behavior */
+  .portfolio-grid {
+    display: block !important;
+  }
+
+  .project-card {
+    margin-bottom: 30px !important;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+  }
+}
+
+/* ABOUT US*/
+@media screen and (max-width: 600px) {
+  main.about-page,
+  section.about-intro,
+  section.founder-section,
+  section.why-choose-us,
+  section.values-section {
+    max-width: 600px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 15px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  /* Headings h1, h2, h3 all same font size and spacing */
+  main.about-page h1,
+  main.about-page h2,
+  main.about-page h3,
+  section.about-intro h1,
+  section.founder-section h2,
+  section.why-choose-us h2,
+  section.values-section h2 {
+    font-size: 1.2rem !important;
+    margin: 15px 0 10px !important;
+  }
+
+  /* Paragraphs & list items */
+  main.about-page p,
+  main.about-page li,
+  section.about-intro p,
+  section.founder-section p,
+  section.why-choose-us p,
+  section.values-section ul {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    margin: 10px auto !important;
+    max-width: 100% !important;
+  }
+
+  .founder-section h2 {
+    padding-top: 10px;
+  }
+  .founder-section p {
+    padding-bottom: 10px;
+  }
+
+  .why-choose-us p {
+    padding-bottom: 10px;
+  }
+.why-choose-us h2 {
+  padding-top: 10px;
+}
+
+  /* Lists left aligned but inside container */
+  section.values-section ul {
+    padding-left: 20px !important;
+    text-align: left !important;
+    margin: 0 auto 20px !important;
+  }
+
+  .values-section h2 {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    }
+  
+
+
+  /* Founder photo adjustments */
+  .founder-section img.founder-photo {
+    max-width: 200px !important;
+    width: 80% !important;
+    height: auto !important;
+    margin: 15px auto 20px !important;
+    display: block !important;
+    border-radius: 8px !important;
+    object-fit: contain !important;
+  }
+
+  /* Ensure no overflow for any content */
+  main.about-page * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
+/* CONTACT US*/
+@media screen and (max-width: 600px) {
+  main.contact-page {
+    max-width: 600px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 15px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  main.contact-page h1,
+  main.contact-page h2,
+  main.contact-page h3 {
+    font-size: 1.2rem !important;
+    margin: 15px 0 10px !important;
+  }
+
+  main.contact-page p {
+    font-size: 1rem !important;
+    margin: 10px auto !important;
+    max-width: 100% !important;
+  }
+
+  /* Center images inside paragraphs and limit their size */
+  main.contact-page p img {
+    vertical-align: middle !important;
+    height: 2em !important;
+    max-width: 100% !important;
+  }
+
+  /* Form elements full width and spacing */
+  main.contact-page form {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  main.contact-page form label,
+  main.contact-page form input,
+  main.contact-page form textarea,
+  main.contact-page form button {
+    display: block !important;
+    width: 100% !important;
+    margin: 10px 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  main.contact-page form input,
+  main.contact-page form textarea {
+    padding: 8px !important;
+    font-size: 1rem !important;
+  }
+
+  main.contact-page form button {
+    font-size: 1rem !important;
+    padding: 12px !important;
+    cursor: pointer !important;
+  }
+
+  main.contact-page p.note {
+    font-size: 1rem !important;
+    margin-top: 15px !important;
+  }
+}
+
+/* FOOTER */
+@media screen and (max-width: 600px) {
+  footer.footer {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 15px 10px;
+  }
+
+  footer.footer p {
+    margin: 0 0 10px;
+    font-size: 0.8rem;
+  }
+
+  footer.footer .social-icons {
     display: flex;
-    justify-content: center; /* Centers the image horizontally */
-    align-items: center; /* Optional, centers vertically if needed */
-    text-align: center; /* Ensures the text inside is also centered */
+    justify-content: center;
+    gap: 15px;
   }
 
-  .hero {
-    max-width: 90%; /* Adjust image size to fit smaller screens */
-    height: auto; /* Keep the aspect ratio */
+  footer.footer .social-icons a img {
+    width: 24px; /* Adjust icon size if needed */
+    height: auto;
   }
 }
-
-
- li {
-    font-size: 1rem; /* Adjust font size for list items */
-    line-height: 1.6; /* Line height for better readability */
-    text-align: left; /* Ensure list items are aligned left */
-    margin-bottom: 10px; /* Space between list items */
-  }}
-
-
 
 
