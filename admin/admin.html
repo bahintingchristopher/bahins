@@ -63,7 +63,6 @@
     <ul id="allMessages"></ul>
   </main>
 <script>
-  // Replace this existing fetch code with the updated one including date/time:
   fetch('https://bahins-backend.onrender.com/messages')
   .then(res => res.json())
   .then(messages => {
@@ -71,11 +70,10 @@
     messages.forEach(msg => {
       const li = document.createElement('li');
 
-      // Format date/time if available, else empty string
       let formattedDate = '';
-      if (msg.date) {
-        const dateObj = new Date(msg.date);
-        formattedDate = dateObj.toLocaleString(); // "10/18/2025, 3:45:00 PM"
+      if (msg.created_at) {
+        const dateObj = new Date(msg.created_at);
+        formattedDate = dateObj.toLocaleString();
       }
 
       li.textContent = `${formattedDate}, ${msg.name} (${msg.email}) - ${msg.reason}: ${msg.message}`;
@@ -86,7 +84,6 @@
   .catch(error => {
     console.error('Failed to fetch messages:', error);
   });
-
 </script>
 
 </body>
