@@ -1,0 +1,100 @@
+@media (max-width: 1000px) {
+  .navbar {
+    display: none;  
+  }
+
+  /* .hamburger {
+    display: block;  
+  } */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  padding-top: .2rem;
+}
+
+
+
+
+/* NEW FOOTER */
+.newsletter form {
+display: flex;
+flex-direction: column;
+gap: 10px;
+align-items: center;
+width: 100%;
+max-width: 95%;  
+margin: 0 auto;
+}
+
+.newsletter input,
+.newsletter button {
+width: 100%;         
+max-width: 100%;     
+padding: 10px;
+border: none;
+border-radius: 5px;
+font-size: 1rem;
+box-sizing: border-box;  
+}
+
+/* .privacy-container {
+width: 100%;        
+margin: 0 auto;       
+padding-left: 1rem !important;   
+padding-right: 1rem !important;
+box-sizing: border-box;
+max-width: 600px;
+} */
+
+/* .privacy-container h1 {
+font-size: 1.8rem;
+}
+
+.privacy-container h2 {
+font-size: 1.4rem;
+}
+
+.privacy-container p,
+.privacy-container li {
+font-size: 1rem;
+line-height: 1.6;
+} */
+
+/*CLOSE BUTTON8*/
+/* .close-btn
+{
+    display: none;
+} */
+
+
+/*ADDITIONAL IN NAV MENU OF MOBILE VIEW*/
+.contact-info-mobile,
+.social-links-mobile {
+flex-direction: column;
+margin-top: .2rem;
+text-align: center;
+color: var(--secondary-color);
+}
+
+/* Show only on mobile and when nav menu is active */
+.navbar.active .contact-info-mobile,
+.navbar.active .social-links-mobile {
+display: flex;
+}
+
+.social-links-mobile {
+flex-direction: column;
+justify-content: center;
+}
+
+.navbar a.active .contact-info-mobile,
+.navbar a.active .social-links-mobile {
+display: flex;
+}
+
+
+
