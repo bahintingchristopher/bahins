@@ -3,83 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bahins Web and Software Solutions</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <meta name="author" content="Christopher T. Bahinting">
+  <meta name="description" content="Bahins Web and Software Solution offers web development, custom software solutions, and IT consulting services.">  <title>Bahins Web and Software Solutions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto:ital,wdth,wght@0,75..100,700;1,75..100,700&display=swap" rel="stylesheet">
+   
+
+    <link rel="stylesheet" href="styles/large_screen.css" />
+    <link rel="stylesheet" href="styles/small_screen.css">
+    <link rel="stylesheet" href="styles/medium.css">
+    
+
 </head>
 
 <body>
+  <header class="header">
+  <div class="logo">
+    <img src="images/bahins_logo.jpg" alt="My Logo" class="logo-img" />
+    <!-- <h1>Bahins Web & Software Solutions</h1> -->
+  </div>
 
-  <header class="logo">
-    <img src="images/bahins_logo.jpg" alt="Bahins Web Logo" class="logo-img" />
-    <h1>Bahins Web & Software Solutions</h1>
-  </header>
+  <button class="hamburger" aria-label="Toggle menu">&#9776;</button>
 
-  <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+   <nav class="navbar">
+        <button class="close-btn" aria-label="Close menu">✕</button>
+        <a href="index.html" >Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html" >About Us</a>
+      <a href="contact.html" id="contact-link" class="contact-link">Get in Touch</a>
+       <!-- ADDITIONAL NAV CONTENT -->
+      <div class="contact-info-mobile">
+        <a href="tel:+639128751487" class="quick-call" >Call Us</a>
+        <a href="mailto:bahintingchristopher@gmail.com" class="quick-email" aria-label="Email Us"> Email Us</a>
+        <a href="https://www.facebook.com/profile.php?id=61579616556378" target="_blank" aria-label="Facebook" rel="noopener noreferrer">Fb Page</a>
+        <a href="https://www.linkedin.com/in/cbahinting" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">LinkedIn</a>
+      </div>      
+      <div class="social-links-mobile">
+         <a href="faqs.html" class="faqs" >FAQS</a>
+        <a href="privacy.html" class="active">Privacy Policy</a>
+      </div>
+      </nav>
+</header>
+  
 
   <main class="contact-page">
 
     <section class="get-in-touch">
       <h1>Get in Touch</h1>
-      <p>If you're ready to grow your business or have questions, we’d love to hear from you.</p>
+      <p>If you're ready to grow your business or have questions, we'd love to hear from you.</p>
     </section>
 
     <section class="contact-info">
       <h2>Contact Information</h2>
       <p>
         <img src="images/email_logo.webp" alt="Email icon" style="vertical-align: middle; height: 2em;" />
-        cbahinting@byupathway.edu
+       bahintingchristopher@gmail.com
       </p>
       <p>
         <img src="images/phone_icon.webp" alt="Phone icon" style="vertical-align: middle; height: 2em;" />
-        0935 443 2178 | 0912 875 1487</a>
+          0912 875 1487
       </p>
       <p>
         <img src="images/address_icon.webp" alt="Address icon" style="vertical-align: middle; height: 2em;" />
-        Kapayas, Canjulao, Lapu-Lapu City, Cebu
+        Canjulao, Lapu-Lapu, Cebu
       </p>
     </section>
 
-    <section class="contact-form">
-      <h2>Send Us a Message</h2>
-      <form action="https://formsubmit.co/bahintingchristopher@gmail.com" method="POST">
-        <!-- Name -->
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Your full name" required />
+<section class="contact-form">
+  <h2>Send Us a Message</h2>
+  
+<form action="https://bahins-backend.onrender.com/submit-message" method="POST" id="contact-form">
+    
+    <fieldset class="name">
+      <label for="name">Name*:</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+    </fieldset>
+    
+    <fieldset class="email">
+      <label for="email">Email Address*:</label>
+      <input type="email" id="email" name="email" placeholder="your@email.com" required />
+    </fieldset>
+    
+    <fieldset class="reason">
+          <label for="reason">Reason for Contact*:</label> 
+          <select id="reason" name="reason" required>
+              <option value="" disabled selected>Select a Reason...</option>
+              <option value="consultation">Consultation</option>
+              <option value="support">Technical Support</option>
+              <option value="pricing">Request Quotation</option>
+              <option value="partnership">Product Demo</option>
+              <option value="feedback">Project Inquiry</option>
+              <option value="other">Feedback</option>
+        </select>
 
-        <!-- Email -->
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+    </fieldset>
+    
+    <fieldset class="message">
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="3" placeholder="Write your message here..." required></textarea>
+    </fieldset>
+    
+    <button type="submit">Start the Conversation</button>
+  </form>
+</section>
+  
+<p class="note">* We'll get back to you as soon as possible.</p>
+<p>Messages received: <span id="messageCount">0</span></p>
 
-        <!-- Message -->
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
 
-        <!-- Submit Button -->
-        <button type="submit">Send Message</button>
 
-       
-      <p class="note">* We'll get back to you within 1–2 business days.</p>
-    </section>
-
+  
   </main>
 
+<script src="script/bahins.js" defer></script>
+
 <footer class="footer">
+  <div class="footer-container">
+    
+    <!-- About / Company Description -->
+    <div class="footer-section">
+      <h3>SUSTAINABLE STRATEGIC ADVANCEMENT</h3>
+      <p>
+        Bahins Web & Software Solutions empowers businesses with custom websites and software tools designed to grow and innovate. We serve a wide range of industries with tailored, affordable digital solutions.
+      </p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61579616556378" target="_blank" id="fb-link">
+            <img src="images/fb_icon.jpg" alt="Facebook Icon" /></a>
+            <a href="https://www.linkedin.com/in/cbahinting" target="_blank" id="linkedin-link">
+            <img src="images/linkedin_icon.png" alt="LinkedIn Icon" /></a>
+          </div>
+    </div>
+
+       <!-- Browse -->
+    <div class="footer-section">
+      <h3>BROWSE</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+      </ul>
+    </div>
+
+    <!-- Take Action -->
+    <div class="footer-section">
+      <h3>TAKE ACTION</h3>
+      <ul>
+        <li><a href="tel:+639354432178">Call Us</a></li>
+        <li><a href="mailto:bahintingchristopher@gmail.com">Email</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="footer-section newsletter">
+      <h3>NEWSLETTER</h3>
+      <p>Subscribe to get the latest updates on our services and digital insights.</p>
+      <form action="https://formsubmit.co/bahintingchristopher@gmail.com" method="POST">
+        <label for="newsletter-name" class="bebet">Your Name</label>
+          <input type="text" id="newsletter-name" name="name" placeholder="Your Name" required autocomplete="name" >
+
+          <label for="newsletter-email" class="bebet">Email Address</label>
+          <input type="email" id="newsletter-email" name="email" placeholder="Your Email Address"  required autocomplete="email">
+
+        <button type="submit">SUBSCRIBE</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+   <div class="footer-bottom">
+    <p>&copy; 2025 | Bahins Web & Software Solutions | All Rights Reserved.</p>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+<!-- BELOW IS MY BEGINNER VERSION OF FOOTER
+  <footer class="footer">
     <p>&copy; 2025 | Bahins Web & Software Solutions</p>
     <div class="social-icons">
-      <a href="#" id="fb-link"><img src="images/fb_icon.jpg" alt="Facebook Icon" /></a>
-      <a href="#" id="linkedin-link"><img src="images/linkedin_icon.png" alt="LinkedIn Icon" /></a>
+      <a href="https://www.facebook.com/profile.php?id=61579616556378" target="_blank" id="fb-link"><img src="images/fb_icon.jpg" alt="Facebook Icon" /></a>
+      <a href="https://www.linkedin.com/in/cbahinting" target="_blank" id="linkedin-link"><img src="images/linkedin_icon.png" alt="LinkedIn Icon" /></a>
       <a href="#"><img src="images/wattsapp_icon.png" alt="WhatsApp Icon" /></a>
     </div>
-  </footer>
+  </footer> -->
 
-  <script src="bahins.js"></script>
 </body>
 </html>
 

@@ -1,119 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Christopher T. Bahinting">
     <meta name="description" content="Bahins Web and Software Solution offers web development, custom software solutions, and IT consulting services.">
     <title>Bahins Web and Software Solutions</title>
-    <link rel="stylesheet" href="styles.css" />
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto:ital,wdth,wght@0,75..100,700;1,75..100,700&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="styles/large_screen.css" >
+    <link rel="stylesheet" href="styles/small_screen.css">
+    <link rel="stylesheet" href="styles/medium.css">
+    
     
 </head>
+
 <body>
+   <header class="header">
+      <div class="logo">
+        <img src="images/bahins_logo.jpg" alt="My Logo" class="logo-img" />
+        <!-- <h1>Bahins Web & Software Solutions</h1> -->
+      </div>
 
-  <div class="full-width-wrapper">
+      <button class="hamburger" aria-label="Toggle menu">&#9776;</button>
 
-    <div class="logo">
-      <img src="images/bahins_logo.jpg" alt="Bahins Web and Software Solutions Logo" class="logo-img" loading="lazy" />
-      <h1>Bahins Web & Software Solutions</h1>
-    </div>
-
-    <nav class="navbar">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+       <nav class="navbar">
+        <button class="close-btn" aria-label="Close menu">✕</button>
+        <a href="index.html" >Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html" >About Us</a>
+      <a href="contact.html" id="contact-link" class="contact-link">Get in Touch</a>
+       <!-- ADDITIONAL NAV CONTENT -->
+      <div class="contact-info-mobile">
+        <a href="tel:+639128751487" class="quick-call" >Call Us</a>
+        <a href="mailto:bahintingchristopher@gmail.com" class="quick-email" aria-label="Email Us"> Email Us</a>
+        <a href="https://www.facebook.com/profile.php?id=61579616556378" target="_blank" aria-label="Facebook" rel="noopener noreferrer">Fb Page</a>
+        <a href="https://www.linkedin.com/in/cbahinting" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">LinkedIn</a>
+      </div>      
+      <div class="social-links-mobile">
+         <a href="faqs.html" class="faqs" >FAQS</a>
+        <a href="privacy.html" class="active">Privacy Policy</a>
+      </div>
+      </nav>
+</header>
+  
+<main>
+<div class="welcome_hero">
+      <div class="hero">
+          <div class="nested-hero">
+            <img src="images/bahins_h1.jpg" alt="hero image" class="hero-img" >
+          </div>
+      </div>
 
     <div class="welcome">
-      <h1>Smart Web & Software Solutions That Grow Your Business</h1>
-      <p>
-        Welcome to Bahins Web & Software Solutions — we help small businesses like stores, online sellers, salons, water stations, cooperatives, and associations go digital. Whether you need a website, a simple system to manage your work, or tools to connect better with your customers, we're here to help you grow with smart, affordable solutions.
-      </p>
+        <h1>Crafting Beautiful, Responsive Websites That Grow Your Business</h1>
+            <p>
+            Welcome to Bahins Web & Software Solutions — your trusted partner in transforming small businesses into digital success stories. We specialize in helping a diverse range of businesses—whether you're running a local store, managing an online shop, operating a salon, running a water station, leading a cooperative, or organizing an association—embrace the power of digital technology.
+            </p>
+            <p>
+            Our mission is to simplify your journey to digital transformation by providing tailored, user-friendly websites, efficient management systems, and smart customer engagement tools that are designed to fit your unique needs and budget. From creating stunning online storefronts to building custom software solutions that streamline your daily operations, we focus on delivering smart, affordable solutions that help you grow your business, increase your reach, and connect better with your customers.
+            </p>
+            <!-- <p>
+            At Bahins, we believe technology should work for you—not the other way around. Let us empower your business with innovative tools that save you time, reduce hassle, and open doors to new opportunities in the digital world. Together, we will help you build a stronger brand, enhance customer relationships, and achieve sustainable growth.
+            </p> -->
     </div>
-
-    <div class="hero">
-  <div class="nested-hero">
-    <img src="images/bahins_h1.jpg" alt="hero image" class="hero-img" />
-  </div>
 </div>
 
    <div class="mission-vision">
-  <div class="mission">
-    <h2>Our Mission</h2>
-    <p>
-      To empower businesses by delivering innovative, reliable, and user-friendly web and software solutions that drive growth, enhance productivity, and provide exceptional value to our clients.
-    </p>
-  </div>
+      <div class="mission">
+              <h2>Our Mission</h2>
+              <p>
+                To empower businesses by delivering innovative, reliable, and user-friendly web and software solutions that drive growth, enhance productivity, and provide exceptional value to our clients.
+              </p>
+      </div>
 
-  <div class="vision">
-    <h2>Our Vision</h2>
-    <p>
-      To be a leading technology partner recognized for transforming ideas into cutting-edge digital experiences that shape the future of businesses worldwide.
-    </p>
-  </div>
+      <div class="vision">
+              <h2>Our Vision</h2>
+              <p>
+                To be a leading technology partner recognized for transforming ideas into cutting-edge digital experiences that shape the future of businesses worldwide.
+              </p>
+      </div>
 </div>
 
 
 <div class="cta-cont">
-  <section class="cta">
-    <h2>Ready to Transform Your Business?</h2>
-    <p>Contact us today to discuss your project and get a free consultation!</p>
-    <div class="cta-button-wrapper">
-      <a href="contact.html" class="cta-button">Get in Touch</a>
-    </div>
-  </section>
+      <section class="cta">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Contact us today to discuss your project and get a free consultation!</p>
+            <div class="cta-button-wrapper">
+                  <a href="contact.html" class="cta-button">Get in Touch</a>
+            </div>
+      </section>
 </div>
 
-
-
     <section class="services-overview">
-      <div class="service-item">
-        <h3>Websites for Small Businesses</h3>
-        <p>Custom, scalable websites tailored to your business needs.</p>
-      </div>
-      <div class="service-item">
-        <h3>Custom Tools to Manage Your Work</h3>
-        <p>Robust software applications to streamline your operations.</p>
-      </div>
-      <div class="service-item">
-        <h3>Modern Design for Better Engagement</h3>
-        <p>Intuitive and engaging interfaces that delight your users.</p>
-      </div>
+          <div class="service-item">
+                <h3>Websites for Small Businesses</h3>
+                <p>Custom, scalable websites tailored to your business needs.</p>
+          </div>
+        <div class="service-item">
+                <h3>Custom Tools to Manage Your Work</h3>
+                <p>Robust software applications to streamline your operations.</p>
+        </div>
+        <div class="service-item">
+                <h3>Modern Design for Better Engagement</h3>
+                <p>Intuitive and engaging interfaces that delight your users.</p>
+        </div>
     </section>
+</main>
+<script src="script/bahins.js"></script>
+
+  <footer class="footer">
     
+  <div class="footer-container">
+    
+    <!-- About / Company Description -->
+    <div class="footer-section">
+      <h3>SUSTAINABLE STRATEGIC ADVANCEMENT</h3>
+      <p>
+        Bahins Web & Software Solutions empowers businesses with custom websites and software tools designed to grow and innovate. We serve a wide range of industries with tailored, affordable digital solutions.
+      </p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61579616556378" target="_blank" id="fb-link">
+            <img src="images/fb_icon.jpg" alt="Facebook Icon" /></a>
+            <a href="https://www.linkedin.com/in/cbahinting" target="_blank" id="linkedin-link">
+            <img src="images/linkedin_icon.png" alt="LinkedIn Icon" /></a>
+          </div>
+    </div>
 
-  </div> <!-- end full-width-wrapper -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Bahins Web and Software Solutions",
-  "url": "https://bahintingchristopher.github.io/bahins/",
-  "logo": "https://bahintingchristopher.github.io/bahins_logo.jpg",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61579616556378",
-    "https://www.linkedin.com/in/cbahinting/"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+1-234-567-890",
-    "contactType": "Customer Service",
-    "areaServed": "US",
-    "availableLanguage": "English"
-  }
-}
-</script>
+       <!-- Browse -->
+    <div class="footer-section">
+      <h3>BROWSE</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+       <li><a href="faqs.html">FAQs</a></li>
+      </ul>
+    </div>
 
+    <!-- Take Action -->
+    <div class="footer-section">
+      <h3>TAKE ACTION</h3>
+      <ul>
+        <li><a href="tel:+639354432178">Call Us</a></li>
+        <li><a href="mailto:bahintingchristopher@gmail.com">Email</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="footer-section newsletter">
+      <h3>NEWSLETTER</h3>
+      <p>Subscribe to get the latest updates on our services and digital insights.</p>
+      <form action="https://formsubmit.co/bahintingchristopher@gmail.com" method="POST">
+        <label for="name" class="bebet">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required autocomplete="name" >
+        <label for="email" class="bebet">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Your Email Address"  required autocomplete="email">
+        <button type="submit">SUBSCRIBE</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div class="footer-bottom">
+    <p>&copy; 2025 | Bahins Web & Software Solutions | All Rights Reserved.</p>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+<!-- BELOW IS MY BEGINNER VERSION OF FOOTER
   <footer class="footer">
     <p>&copy; 2025 | Bahins Web & Software Solutions</p>
     <div class="social-icons">
-      <a href="#" id="fb-link"><img src="images/fb_icon.jpg" alt="Facebook Icon" /></a>
-      <a href="#" id="linkedin-link"><img src="images/linkedin_icon.png" alt="LinkedIn Icon" /></a>
+      <a href="https://www.facebook.com/profile.php?id=61579616556378" target="_blank" id="fb-link"><img src="images/fb_icon.jpg" alt="Facebook Icon" /></a>
+      <a href="https://www.linkedin.com/in/cbahinting" target="_blank" id="linkedin-link"><img src="images/linkedin_icon.png" alt="LinkedIn Icon" /></a>
       <a href="#"><img src="images/wattsapp_icon.png" alt="WhatsApp Icon" /></a>
     </div>
-  </footer>
+  </footer> -->
 
-  <script src="bahins.js"></script>
 </body>
 </html>

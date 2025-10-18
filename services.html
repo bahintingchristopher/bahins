@@ -2,28 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Christopher T. Bahinting">
+    <meta name="description" content="Bahins Web and Software Solution offers web development, custom software solutions, and IT consulting services."/>
     <title>Bahins Web and Software Solutions</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto:ital,wdth,wght@0,75..100,700;1,75..100,700&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="styles/large_screen.css" />
+    <link rel="stylesheet" href="styles/small_screen.css">
+    <link rel="stylesheet" href="styles/medium.css">
+    
     
 
 </head>
 <body>
-        
+ <header class="header">
+      <div class="logo">
+        <img src="images/bahins_logo.jpg" alt="My Logo" class="logo-img" />
+        <!-- <h1>Bahins Web & Software Solutions</h1> -->
+      </div>
 
-    
-<div class="logo">
-  <img src="images/bahins_logo.jpg" alt="My Logo" class="logo-img">
-  <h1>Bahins Web & Software Solutions</h1>
-</div>
+      <button class="hamburger" aria-label="Toggle menu">&#9776;</button>
 
-<nav class="navbar">
-     <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-</nav>
+       <nav class="navbar">
+        <button class="close-btn" aria-label="Close menu">✕</button>
+        <a href="index.html" >Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html" >About Us</a>
+      <a href="contact.html" id="contact-link" class="contact-link">Get in Touch</a>
+       <!-- ADDITIONAL NAV CONTENT -->
+      <div class="contact-info-mobile">
+        <a href="tel:+639128751487" class="quick-call" >Call Us</a>
+        <a href="mailto:bahintingchristopher@gmail.com" class="quick-email" aria-label="Email Us"> Email Us</a>
+        <a href="https://www.facebook.com/profile.php?id=61579616556378" target="_blank" aria-label="Facebook" rel="noopener noreferrer">Fb Page</a>
+        <a href="https://www.linkedin.com/in/cbahinting" target="_blank" aria-label="LinkedIn" rel="noopener noreferrer">LinkedIn</a>
+      </div>      
+      <div class="social-links-mobile">
+         <a href="faqs.html" class="faqs" >FAQS</a>
+        <a href="privacy.html" class="active">Privacy Policy</a>
+      </div>
+      </nav>
+</header>
+
  <main class="services-page">
     <h1>Our Services</h1>
     <p>We provide smart, affordable digital solutions tailored to help small businesses grow and thrive in the digital world.</p>
@@ -53,23 +77,86 @@
       <h2>📱 Social Media Integration</h2>
       <p>Connect your website to Facebook, WhatsApp, or LinkedIn so customers can easily reach you.</p>
     </section>
+
+     <section class="offers">
+    <h2>📊 Analytics & SEO</h2>
+    <p>Track website visitors, monitor performance, and improve your search rankings with basic SEO tools and integration.</p>
+  </section>
+    </div>
+</main>
+   
+<script src="script/bahins.js" defer></script>
+ 
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- About / Company Description -->
+    <div class="footer-section">
+      <h3>SUSTAINABLE STRATEGIC ADVANCEMENT</h3>
+      <p>
+        Bahins Web & Software Solutions empowers businesses with custom websites and software tools designed to grow and innovate. We serve a wide range of industries with tailored, affordable digital solutions.
+      </p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61579616556378" target="_blank" id="fb-link">
+            <img src="images/fb_icon.jpg" alt="Facebook Icon" /></a>
+            <a href="https://www.linkedin.com/in/cbahinting" target="_blank" id="linkedin-link">
+            <img src="images/linkedin_icon.png" alt="LinkedIn Icon" /></a>
+          </div>
     </div>
 
-<script src="bahins.js"></script>
+       <!-- Browse -->
+    <div class="footer-section">
+      <h3>BROWSE</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+      </ul>
+    </div>
 
+    <!-- Take Action -->
+    <div class="footer-section">
+      <h3>TAKE ACTION</h3>
+      <ul>
+        <li><a href="tel:+639354432178">Call Us</a></li>
+        <li><a href="mailto:bahintingchristopher@gmail.com">Email</a></li>
+      </ul>
+    </div>
 
-</body>
+    <!-- Newsletter Signup -->
+    <div class="footer-section newsletter">
+      <h3>NEWSLETTER</h3>
+      <p>Subscribe to get the latest updates on our services and digital insights.</p>
+      <form action="https://formsubmit.co/bahintingchristopher@gmail.com" method="POST">
+        <label for="name" class="bebet">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required autocomplete="name" >
+        <label for="email" class="bebet">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Your Email Address"  required autocomplete="email">
+        <button type="submit">SUBSCRIBE</button>
+      </form>
+    </div>
 
+  </div>
 
-<footer class="footer">
+  <!-- Bottom -->
+  <div class="footer-bottom">
+    <p>&copy; 2025 | Bahins Web & Software Solutions | All Rights Reserved.</p>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+</footer>
+
+<!-- BELOW IS MY BEGINNER VERSION OF FOOTER
+  <footer class="footer">
     <p>&copy; 2025 | Bahins Web & Software Solutions</p>
     <div class="social-icons">
-      <a href="#" id="fb-link"><img src="images/fb_icon.jpg" alt="Facebook Icon" /></a>
-      <a href="#" id="linkedin-link"><img src="images/linkedin_icon.png" alt="LinkedIn Icon" /></a>
+      <a href="https://www.facebook.com/profile.php?id=61579616556378" target="_blank" id="fb-link"><img src="images/fb_icon.jpg" alt="Facebook Icon" /></a>
+      <a href="https://www.linkedin.com/in/cbahinting" target="_blank" id="linkedin-link"><img src="images/linkedin_icon.png" alt="LinkedIn Icon" /></a>
       <a href="#"><img src="images/wattsapp_icon.png" alt="WhatsApp Icon" /></a>
     </div>
-  </footer>
+  </footer> -->
 
-  <script src="bahins.js"></script>
 </body>
 </html>
