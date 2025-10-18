@@ -70,11 +70,17 @@
     messages.forEach(msg => {
       const li = document.createElement('li');
 
-      let formattedDate = '';
-      if (msg.created_at) {
-        const dateObj = new Date(msg.created_at);
-        formattedDate = dateObj.toLocaleString();
-      }
+     let formattedDate = '';
+if (msg.created_at) {
+  const dateObj = new Date(msg.created_at);
+
+  // Convert to Philippine Time (UTC+8)
+  // Get UTC time in milliseconds, then add 8 hours in ms
+  const phTime = new Date(dateObj.getTime() + (8 * 60 * 60 * 1000));
+
+  formattedDate = phTime.toLocaleString();
+}
+
 
       li.textContent = `${formattedDate}, ${msg.name} (${msg.email}) - ${msg.reason}: ${msg.message}`;
 
