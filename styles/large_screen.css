@@ -568,7 +568,7 @@ margin-right: 25%;
 margin-left: 25%;
 padding-top: 2rem;
 padding-bottom: 2rem;
-color: var(--primary-color);
+border-radius: 1rem;
 font-size: 2rem;
 background-color: var(--secondary-color);
 }
