@@ -1,0 +1,93 @@
+<!-- <ul id="allMessages"></ul>
+
+<script>
+  fetch('https://bahins-backend.onrender.com/messages')
+    .then(res => res.json())
+    .then(messages => {
+      const list = document.getElementById('allMessages');
+      messages.forEach(msg => {
+        const li = document.createElement('li');
+        li.textContent = `${msg.name} (${msg.email}) - ${msg.reason}: ${msg.message}`;
+        list.appendChild(li);
+      });
+    })
+    .catch(error => {
+      console.error('Failed to fetch messages:', error);
+    });
+</script> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin - Contact Messages</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#007bff" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f0f0f0;
+    }
+    header {
+      background: #007bff;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      margin-top: 1rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: white;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid #007bff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contact Messages</h1>
+  </header>
+
+  <main>
+    <ul id="allMessages"></ul>
+  </main>
+<script>
+  // Replace this existing fetch code with the updated one including date/time:
+  fetch('https://bahins-backend.onrender.com/messages')
+  .then(res => res.json())
+  .then(messages => {
+    const list = document.getElementById('allMessages');
+    messages.forEach(msg => {
+      const li = document.createElement('li');
+
+      // Format date/time if available, else empty string
+      let formattedDate = '';
+      if (msg.date) {
+        const dateObj = new Date(msg.date);
+        formattedDate = dateObj.toLocaleString(); // "10/18/2025, 3:45:00 PM"
+      }
+
+      li.textContent = `${formattedDate}, ${msg.name} (${msg.email}) - ${msg.reason}: ${msg.message}`;
+
+      list.appendChild(li);
+    });
+  })
+  .catch(error => {
+    console.error('Failed to fetch messages:', error);
+  });
+
+</script>
+
+</body>
+</html>
