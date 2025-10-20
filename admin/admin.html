@@ -62,45 +62,56 @@
 
   <script>
     fetch('https://bahins-backend.onrender.com/messages')
-    .then(res => res.json())
-    .then(messages => {
-      const list = document.getElementById('allMessages');
-      messages.forEach(msg => {
-        const li = document.createElement('li');
+  .then(res => res.json())
+  .then(messages => {
+    const list = document.getElementById('allMessages');
+    list.innerHTML = '';  // clear list first
 
-        let formattedDate = '';
-        if (msg.created_at) {
-          const dateObj = new Date(msg.created_at);
-          const phTime = new Date(dateObj.getTime() + (8 * 60 * 60 * 1000));
-          formattedDate = phTime.toLocaleString();
+    messages.forEach(msg => {
+      const li = document.createElement('li');
+
+      let formattedDate = '';
+      if (msg.created_at) {
+        const dateObj = new Date(msg.created_at);
+        const phTime = new Date(dateObj.getTime() + (8 * 60 * 60 * 1000)); // PH timezone adjustment
+        formattedDate = phTime.toLocaleString();
+      }
+
+      const messageSpan = document.createElement('span');
+      messageSpan.textContent = `${formattedDate}, ${msg.name} (${msg.email}) - ${msg.reason}: ${msg.message}`;
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.className = 'delete-btn';
+
+      deleteBtn.addEventListener('click', () => {
+        if (confirm(`Are you sure you want to delete the message from ${msg.name}?`)) {
+          fetch(`https://bahins-backend.onrender.com/messages/${msg._id}`, {
+            method: 'DELETE',
+          })
+          .then(response => {
+            if (response.ok) {
+              alert(`Message from ${msg.name} deleted successfully.`);
+              list.removeChild(li);
+            } else {
+              alert('Failed to delete message.');
+            }
+          })
+          .catch(error => {
+            alert('Error deleting message: ' + error.message);
+          });
         }
-
-        // Create a span to hold the message text (to keep separate from button)
-        const messageSpan = document.createElement('span');
-        messageSpan.textContent = `${formattedDate}, ${msg.name} (${msg.email}) - ${msg.reason}: ${msg.message}`;
-
-        // Create Delete button
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Delete';
-        deleteBtn.className = 'delete-btn';
-
-        // TODO: Replace alert with actual delete API call
-        deleteBtn.addEventListener('click', () => {
-          if(confirm(`Are you sure you want to delete the message from ${msg.name}?`)) {
-            alert(`Delete request sent for message from ${msg.name}`);
-            // After successful delete, remove from UI:
-            // list.removeChild(li);
-          }
-        });
-
-        li.appendChild(messageSpan);
-        li.appendChild(deleteBtn);
-        list.appendChild(li);
       });
-    })
-    .catch(error => {
-      console.error('Failed to fetch messages:', error);
+
+      li.appendChild(messageSpan);
+      li.appendChild(deleteBtn);
+      list.appendChild(li);
     });
+  })
+  .catch(error => {
+    console.error('Failed to fetch messages:', error);
+  });
+
   </script>
 </body>
 </html>
