@@ -1,21 +1,3 @@
-<!-- <ul id="allMessages"></ul>
-
-<script>
-  fetch('https://bahins-backend.onrender.com/messages')
-    .then(res => res.json())
-    .then(messages => {
-      const list = document.getElementById('allMessages');
-      messages.forEach(msg => {
-        const li = document.createElement('li');
-        li.textContent = `${msg.name} (${msg.email}) - ${msg.reason}: ${msg.message}`;
-        list.appendChild(li);
-      });
-    })
-    .catch(error => {
-      console.error('Failed to fetch messages:', error);
-    });
-</script> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,6 +33,21 @@
       border-left: 5px solid #007bff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       word-wrap: break-word;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    button.delete-btn {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 0.9rem;
+    }
+    button.delete-btn:hover {
+      background-color: #b02a37;
     }
   </style>
 </head>
@@ -62,35 +59,48 @@
   <main>
     <ul id="allMessages"></ul>
   </main>
-<script>
-  fetch('https://bahins-backend.onrender.com/messages')
-  .then(res => res.json())
-  .then(messages => {
-    const list = document.getElementById('allMessages');
-    messages.forEach(msg => {
-      const li = document.createElement('li');
 
-     let formattedDate = '';
-if (msg.created_at) {
-  const dateObj = new Date(msg.created_at);
+  <script>
+    fetch('https://bahins-backend.onrender.com/messages')
+    .then(res => res.json())
+    .then(messages => {
+      const list = document.getElementById('allMessages');
+      messages.forEach(msg => {
+        const li = document.createElement('li');
 
-  // Convert to Philippine Time (UTC+8)
-  // Get UTC time in milliseconds, then add 8 hours in ms
-  const phTime = new Date(dateObj.getTime() + (8 * 60 * 60 * 1000));
+        let formattedDate = '';
+        if (msg.created_at) {
+          const dateObj = new Date(msg.created_at);
+          const phTime = new Date(dateObj.getTime() + (8 * 60 * 60 * 1000));
+          formattedDate = phTime.toLocaleString();
+        }
 
-  formattedDate = phTime.toLocaleString();
-}
+        // Create a span to hold the message text (to keep separate from button)
+        const messageSpan = document.createElement('span');
+        messageSpan.textContent = `${formattedDate}, ${msg.name} (${msg.email}) - ${msg.reason}: ${msg.message}`;
 
+        // Create Delete button
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.className = 'delete-btn';
 
-      li.textContent = `${formattedDate}, ${msg.name} (${msg.email}) - ${msg.reason}: ${msg.message}`;
+        // TODO: Replace alert with actual delete API call
+        deleteBtn.addEventListener('click', () => {
+          if(confirm(`Are you sure you want to delete the message from ${msg.name}?`)) {
+            alert(`Delete request sent for message from ${msg.name}`);
+            // After successful delete, remove from UI:
+            // list.removeChild(li);
+          }
+        });
 
-      list.appendChild(li);
+        li.appendChild(messageSpan);
+        li.appendChild(deleteBtn);
+        list.appendChild(li);
+      });
+    })
+    .catch(error => {
+      console.error('Failed to fetch messages:', error);
     });
-  })
-  .catch(error => {
-    console.error('Failed to fetch messages:', error);
-  });
-</script>
-
+  </script>
 </body>
 </html>
