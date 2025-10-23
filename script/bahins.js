@@ -61,16 +61,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const projIds = ['proj1', 'proj2', 'proj3', 'proj4', 'proj5', 'proj6'];
   const projLinks = [
     'https://bahintingchristopher.github.io/wdd130/',
-    'https://rcetglobal.github.io/RCET/index.html',
-    'https://bahintingchristopher.github.io/wdd131/form.html',
+    'https://bahintingchristopher.github.io/calculator/calculator.html',
+    'https://bahintingchristopher.github.io/pingpong/score.html',
     'https://bahintingchristopher.github.io/wdd131/filtered-temples.html',
     'https://bahintingchristopher.github.io/wdd131/place.html',
     'https://bahintingchristopher.github.io/wdd131/index'
   ];
   const projImages = [
     'images/rafting1.jpg',
-    'images/rcet1.jpg',
-    'images/product_review.jpg',
+    'images/calculator.png',
+    'images/scoring_app.png',
     'images/temples.jpg',
     'images/places.jpg',
     'images/aboutMe.jpg'
