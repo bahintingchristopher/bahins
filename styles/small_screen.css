@@ -140,7 +140,7 @@ display: none;
 .navbar a {
 display: block;
 text-align: center;
-padding: 10px 0;
+padding: 8px 0;
 font-size: 1.1rem;
 color: var(--secondary-color);
 text-decoration: none;
