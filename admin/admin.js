@@ -1,139 +1,139 @@
+/**
+ * ADMIN PORTAL LOGIC
+ * Features: Password protection, Guest/Master modes, Secure Deletion, Live Stats
+ */
 
-    // // 1. ASK FOR THE KEY AS SOON AS THE PAGE OPENS
-    // const adminKey = prompt("Please enter the Admin Password:");
+// 1. CONFIGURATION
+const GUEST_KEY = "guest1234!"; 
+const API_URL = 'https://bahins-backend.onrender.com/messages';
+const COUNT_URL = 'https://bahins-backend.onrender.com/message-count';
 
-    // if (!adminKey) {
-    //   alert("Access Denied: No key provided.");
-    //   document.body.innerHTML = "<h1>Unauthorized</h1>";
-    // } else {
-    //   loadMessages();
-    // }
+let activeAdminKey = "";
 
-    // function loadMessages() {
-    //   // 2. SEND THE KEY IN THE HEADERS
-    //   fetch('https://bahins-backend.onrender.com/messages', {
-    //     headers: { 'x-admin-key': adminKey }
-    //   })
-    //   .then(res => {
-    //     if (res.status === 401) throw new Error("Incorrect Secret Key!");
-    //     if (!res.ok) throw new Error("Server Error");
-    //     return res.json();
-    //   })
-    //   .then(messages => {
-    //     const list = document.getElementById('allMessages');
-    //     list.innerHTML = ''; 
+// 2. WAIT FOR PAGE TO LOAD
+window.addEventListener('DOMContentLoaded', () => {
+    const userInput = prompt("Please enter the Admin Password to access the messages:");
 
-    //     messages.forEach(msg => {
-    //       const li = document.createElement('li');
+    if (userInput === null) {
+        lockPage("Login Cancelled", "Please refresh the page and enter a password to view messages.");
+    } else if (userInput.trim() === "") {
+        lockPage("Password Required", "Access is forbidden without a valid security key.");
+    } else {
+        activeAdminKey = userInput;
+        loadMessages();
+    }
+});
 
-    //       // Date Formatting
-    //       let formattedDate = msg.created_at ? new Date(msg.created_at).toLocaleString('en-PH', { timeZone: 'Asia/Manila' }) : 'No Date';
-
-    //       const messageSpan = document.createElement('span');
-    //       messageSpan.textContent = `${formattedDate}, ${msg.name} (${msg.email}) - ${msg.reason}: ${msg.message}`;
-
-    //       const deleteBtn = document.createElement('button');
-    //       deleteBtn.textContent = 'Delete';
-    //       deleteBtn.className = 'delete-btn';
-
-    //       deleteBtn.addEventListener('click', () => {
-    //         if (confirm(`Are you sure you want to delete the message from ${msg.name}?`)) {
-    //           // 3. SEND THE KEY FOR DELETE REQUESTS TOO
-    //           fetch(`https://bahins-backend.onrender.com/messages/${msg._id}`, {
-    //             method: 'DELETE',
-    //             headers: { 'x-admin-key': adminKey }
-    //           })
-    //           .then(response => {
-    //             if (response.ok) {
-    //               alert(`Deleted successfully.`);
-    //               li.remove();
-    //             } else {
-    //               alert('Delete failed. Check your key.');
-    //             }
-    //           })
-    //         }
-    //       });
-
-    //       li.appendChild(messageSpan);
-    //       li.appendChild(deleteBtn);
-    //       list.appendChild(li);
-    //     });
-    //   })
-    //   .catch(error => {
-    //     alert(error.message);
-    //     console.error('Error:', error);
-    //   });
-    // }
-  
-
-    
-//THIS IS MY  FINAL VERSION WITH NO AUTHENTICATION
-// 1. Ask for the key immediately
-const adminKey = prompt("Please enter the Admin Password:");
-const GUEST_KEY = "guest1234!"; // The password for guests
-
-if (!adminKey) {
-    alert("Access Denied: No password provided.");
-    document.body.innerHTML = "<h1 style='text-align:center; margin-top:50px;'>Unauthorized</h1>";
-} else {
-    window.addEventListener('DOMContentLoaded', loadMessages);
-}
-
+// 3. FETCH MESSAGES & STATS
 function loadMessages() {
-    fetch('https://bahins-backend.onrender.com/messages', {
-        headers: { 'x-admin-key': adminKey }
+    fetch(API_URL, {
+        method: 'GET',
+        headers: { 
+            'x-admin-key': activeAdminKey,
+            'Content-Type': 'application/json'
+        }
     })
     .then(res => {
-        if (res.status === 401) throw new Error("Incorrect Secret Key!");
+        if (res.status === 401) throw new Error("Invalid Password. Access Denied.");
+        if (!res.ok) throw new Error("Server connection failed.");
         return res.json();
     })
     .then(messages => {
-        const list = document.getElementById('allMessages');
-        list.innerHTML = ''; 
-
-        messages.forEach(msg => {
-            const li = document.createElement('li');
-
-            // Date Formatting
-            let formattedDate = msg.created_at 
-                ? new Date(msg.created_at).toLocaleString('en-PH', { timeZone: 'Asia/Manila' }) 
-                : 'No Date';
-
-            const messageSpan = document.createElement('span');
-            messageSpan.textContent = `${formattedDate}, ${msg.name}: ${msg.message}`;
-            li.appendChild(messageSpan);
-
-            // 2. CREATE THE BUTTON FOR EVERYONE
-            const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = 'Delete';
-            deleteBtn.className = 'delete-btn';
-
-            deleteBtn.addEventListener('click', () => {
-                // 3. CHECK PERMISSION ONLY WHEN CLICKED
-                if (adminKey === GUEST_KEY) {
-                    alert("Sorry, you are not authorized to delete content.");
-                } else {
-                    // Actual Delete Logic for the Real Admin
-                    if (confirm(`Are you sure you want to delete this message?`)) {
-                        fetch(`https://bahins-backend.onrender.com/messages/${msg._id}`, {
-                            method: 'DELETE',
-                            headers: { 'x-admin-key': adminKey }
-                        })
-                        .then(response => {
-                            if (response.ok) {
-                                alert(`Deleted successfully.`);
-                                li.remove();
-                            } else {
-                                alert('Delete failed. Check your admin permissions.');
-                            }
-                        });
-                    }
-                }
-            });
-
-            li.appendChild(deleteBtn);
-            list.appendChild(li);
-        });
+        // Reveal UI
+        const header = document.getElementById('adminHeader');
+        const main = document.getElementById('adminMain');
+        if (header) header.style.display = 'block';
+        if (main) main.style.display = 'block';
+        
+        renderMessages(messages);
+        updateMessageCount(); // Load the count bubble
     })
-    .catch(error => alert(error.message));
+    .catch(error => {
+        lockPage("Access Forbidden", error.message);
+    });
+}
+
+// 4. FETCH TOTAL COUNT
+function updateMessageCount() {
+    fetch(COUNT_URL)
+        .then(res => res.json())
+        .then(data => {
+            const badge = document.getElementById('msgCountBadge');
+            if (badge) {
+                badge.textContent = data.count;
+            }
+        })
+        .catch(err => console.error("Error fetching count:", err));
+}
+
+// 5. RENDER MESSAGES LIST
+function renderMessages(messages) {
+    const list = document.getElementById('allMessages');
+    if (!list) return;
+    list.innerHTML = ''; 
+
+    if (messages.length === 0) {
+        list.innerHTML = '<p style="text-align:center; padding: 20px;">No messages found.</p>';
+        return;
+    }
+
+    messages.forEach(msg => {
+        const li = document.createElement('li');
+        li.className = "message-card";
+        const date = msg.created_at ? new Date(msg.created_at).toLocaleString('en-PH') : 'N/A';
+
+        li.innerHTML = `
+            <div class="msg-info">
+                <strong>From:</strong> ${msg.name} <strong>Emal:</strong>(<a href="mailto:${msg.email}">${msg.email}</a>)<br>
+                <strong>Reason:</strong> ${msg.reason || 'General'} | <strong>Date:</strong> ${date}
+            </div>
+            <p class="msg-body">${msg.message}</p>
+        `;
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete Message';
+        deleteBtn.className = 'delete-btn';
+
+        deleteBtn.onclick = () => {
+            if (activeAdminKey === GUEST_KEY) {
+                alert("🔒 Guest Mode: You cannot delete messages.");
+                return;
+            }
+
+            if (confirm("Permanently delete this message?")) {
+                fetch(`${API_URL}/${msg._id}`, {
+                    method: 'DELETE',
+                    headers: { 'x-admin-key': activeAdminKey }
+                })
+                .then(res => {
+                    if (res.ok) {
+                        li.remove();
+                        updateMessageCount(); // <-- Automatically update the bubble after deleting!
+                    } else {
+                        alert("Error: Server rejected deletion.");
+                    }
+                })
+                .catch(err => alert("Connection error: " + err.message));
+            }
+        };
+
+        li.appendChild(deleteBtn);
+        list.appendChild(li);
+    });
+}
+
+// 6. LOCK SCREEN UI
+function lockPage(title, description) {
+    document.body.innerHTML = `
+        <div class="lock-screen-container">
+            <div class="lock-card">
+                <div class="lock-icon">🔐</div>
+                <h2 class="lock-title">${title}</h2>
+                <p class="lock-text">${description}</p>
+                <button class="lock-button" onclick="location.reload()">
+                    Login Again
+                </button>
+            </div>
+        </div>
+    `;
 }
